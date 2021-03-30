@@ -1,0 +1,48 @@
+.mission {
+   margin-top: 3rem;
+   padding-bottom: 1rem;
+
+   &-title {
+      font-size: 2.8rem;
+   }
+
+   &-field {
+      margin-top: 1rem;
+   }
+
+   &-li {
+      margin-left: 1.5rem;
+   }
+
+   &-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+   }
+
+   &-list_item {
+      margin-top: 1rem;
+
+      &:not(:last-child) {
+         margin-right: 1rem;
+      }
+   }
+
+   &-sochial {
+      display: flex;
+   }
+
+   &-image {
+      display: block;
+      width: 2rem;
+
+      img {
+         width: 100%;
+      }
+   }
+
+   &:not(:last-child) {
+      border-bottom: 1px solid $borders;
+   }
+}
