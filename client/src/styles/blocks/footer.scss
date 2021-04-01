@@ -1,0 +1,32 @@
+.footer {
+   flex: 0 0 auto;
+   margin-top: 2rem;
+   padding: 2rem;
+   background-color: $secondary;
+
+   &-logo {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+   }
+
+   &-nav {
+      display: flex;
+      flex-direction: column;
+   }
+
+   &-menu {
+      display: flex;
+      justify-content: space-between;
+      
+      &-item {
+         &:not(:last-child) {
+            margin-bottom: 0.5rem;
+         }
+      }
+   }
+
+   .menu {
+      display: block;
+   }
+}
