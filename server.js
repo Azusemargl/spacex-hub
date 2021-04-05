@@ -12,18 +12,19 @@ const ADMIN = process.env.DB_ADMIN;
 const PASSWORD = process.env.DB_PASSWORD;
 const NAME = process.env.DB_NAME;
 
-// Middlewares
+// Middleware
 app.use(cors());
-app.get('/api/test', (req, res) => {
-   const response = 'it works';
-   res.json(response);
-});
+app.use(express.json({ extended: true }));
+
+// Routes
+app.use('/api/user', require('./routes/user'));
 
 const start = () => {
    try {
       mongoose.connect(`mongodb+srv://${ADMIN}:${PASSWORD}@cluster0.l30qd.mongodb.net/${NAME}`, {
          useNewUrlParser: true,
-         useUnifiedTopology: true
+         useUnifiedTopology: true,
+         useCreateIndex: true
       })
       app.listen(PORT, () => {console.log(`Server has been started on ${PORT}`)});
    } catch(error) {

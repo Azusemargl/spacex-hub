@@ -1,30 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router';
+import { Route } from "react-router-dom";
 import Login from '../../components/Auth/Login';
 import Register from '../../components/Auth/Register';
+import Reset from '../../components/Auth/Reset';
 
 const Auth = () => {
-   const [authStep, setAuthStep] = React.useState(0);
+   const isAuth = useSelector(({ authReducer }) => authReducer.isAuth);
 
-   const onLoginStep = () => {
-      setAuthStep(authStep - 1)
-   };
-
-   const onRegisterStep = () => {
-      setAuthStep(authStep + 1)
-   };
-
-   const onRegister = (data) => {
-      console.log(data.login, data.email, data.password, data.password_2);
-   };
-
-   const authComponents = {
-      0: <Login onRegisterStep={onRegisterStep} />,
-      1: <Register onLoginStep={onLoginStep} onSubmit={onRegister} />,
-   };
+   if (isAuth) return <Redirect to="/" />
 
    return (
       <div className="auth">
-         {authComponents[authStep]}
+         <Route path="/auth/login" component={Login} exact />
+         <Route path="/auth/register" component={Register} exact />
+         <Route path="/auth/reset" component={Reset} exact />
       </div>
    );
 };

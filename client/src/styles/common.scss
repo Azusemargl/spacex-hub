@@ -19,6 +19,7 @@ p {
 button {
    outline: none;
    background-color: transparent;
+   border: none;
    font-family: inherit;
    color: inherit;
    cursor: pointer;
@@ -39,7 +40,8 @@ input, textarea {
    background: linear-gradient(15deg, $body 50%, rgba(52, 99, 200, 0.4) 100%);
 }
 .inner {
-   flex: 1 0 auto
+   flex: 1 0 auto;
+   position: relative;
 }
 .container {
    width: 100%;
@@ -108,6 +110,7 @@ input, textarea {
    margin-bottom: 1rem;
 }
 .ref {
+   font-size: 1.6rem;
    color: $blue;
       
    &:hover {

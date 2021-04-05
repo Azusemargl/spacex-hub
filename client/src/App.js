@@ -1,16 +1,27 @@
 import React from 'react';
-import { Provider } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import store from './redux/store';
+import { fetchMe } from './redux/actions/auth';
 import { Home, Launches, LaunchesDetail, Missions, Cores, About, Auth } from './pages';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import axios from 'axios';
 
 const Wrapper = () => {
-  React.useEffect(()=> {
-    axios.get('http://localhost:5000/api/test').then(({ data }) => console.log(data))
-  }, [])
+  const dispatch = useDispatch();
+
+  // User token read
+  const getCookieValue = (name) => {
+      const value = document.cookie.match('(^|;)\s*' + name + '\s*=\s*([^;]+)');
+      return value ? value.pop() : '';
+  }
+
+  // Searching for user token
+  const token = getCookieValue('jwt');
+
+  React.useEffect(() => {
+    dispatch(fetchMe(token));
+  }, []);
 
   return (
     <div className="wrapper">
@@ -23,7 +34,7 @@ const Wrapper = () => {
           <Route path='/missions' component={Missions} exact />
           <Route path='/cores' component={Cores} exact />
           <Route path='/about' component={About} exact />
-          <Route path='/auth' component={Auth} exact />
+          <Route path='/auth' component={Auth} />
         </div>
       </div>
       <Footer />

@@ -28,7 +28,9 @@
    }
 }
 
-.auth {
+.auth_block {
+   display: flex;
+   
    &-item {
       &:not(:last-child) {
          margin-right: 2rem;
