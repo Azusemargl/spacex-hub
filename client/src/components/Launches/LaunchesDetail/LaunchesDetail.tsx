@@ -1,10 +1,10 @@
 import React from 'react';
+import LaunchesDetailInfo from './LaunchedDetailInfo';
+import Breadcrumbs from '../../common/Breadcrumbs';
+import LaunchesDetailGallery from './LaunchedDetailGallary';
+import { LaunchType } from '../../../types/launchType';
 import youtube from '../../../static/images/youtube.svg';
 import wikipedia from '../../../static/images/wikipedia.svg';
-import LaunchesDetailInfo from './LaunchedDetailInfo';
-import LaunchesDetailGallery from './LaunchedDetailGallary';
-import Breadcrumbs from '../../common/Breadcrumbs';
-import { LaunchType } from '../../../types/launchType';
 
 const LaunchesDetail: React.FC<Props> = React.memo(({ launch }) => {
   return (

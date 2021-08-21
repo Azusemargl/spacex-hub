@@ -5,15 +5,16 @@ import LaunchesContainer from '../../components/Launches/LaunchesContainer';
 import Breadcrumbs from '../../components/common/Breadcrumbs';
 import { AppState } from '../../redux/store';
 
-const Launches: React.FC<Props> = ({ launchesLimit }) => {
+const Launches: React.FC = () => {
+
   // Dispatch and State
   const dispatch = useDispatch();
   const  {launches, isLoading } = useSelector(({ launchesReducer }: AppState) => launchesReducer);
 
   // Launches data call
   React.useEffect(() => {
-    dispatch(fetchLaunches(launchesLimit));
-  }, [dispatch, launchesLimit]);
+    dispatch(fetchLaunches());
+  }, [dispatch]);
 
   return (
     <>
@@ -28,8 +29,3 @@ const Launches: React.FC<Props> = ({ launchesLimit }) => {
 };
 
 export default Launches;
-
-// Types
-type Props = {
-  launchesLimit: number
-}

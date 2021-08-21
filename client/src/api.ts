@@ -30,7 +30,7 @@ export const authAPI = {
 
 // Last launches API
 export const launchesAPI = {
-   allLaunches(limit: number) {
+   allLaunches(limit?: number) {
       return instance.get<Array<LaunchType>>(`launches/?order=asc&limit=${limit}`);
    },
    launchesDetail(params: string) {

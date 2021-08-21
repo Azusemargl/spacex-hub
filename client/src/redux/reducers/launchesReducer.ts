@@ -28,7 +28,7 @@ const actions = {
    setLaunchesDetail: (action: LaunchType) => ({ type: 'SET_LAUNCHES_DETAIL', payload: action } as const)
 }
 
-export const fetchLaunches = (limit: number): Thunk => async (dispatch) => {
+export const fetchLaunches = (limit?: number): Thunk => async (dispatch) => {
    const { data } = await launchesAPI.allLaunches(limit);
    try {
       dispatch(actions.setLaunches(data));

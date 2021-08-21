@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const Breadcrumbs: React.FC<Props> = ({ items }) => {
    return (
       <div className="breadcrumbs">
-         {items.map(item => {
+         {items.map((item, index) => {
             return (
                <Fragment key={item.id}>
                   <Link to={item.path ? item.path : ''}>{item.name}</Link>
-                  <span>&#62;</span>
+                  {items.length !== index + 1 && <span>&#62;</span>}
                </Fragment>
             )
          })}
