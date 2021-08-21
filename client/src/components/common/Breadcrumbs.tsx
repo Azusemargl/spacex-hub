@@ -6,8 +6,8 @@ const Breadcrumbs: React.FC<Props> = ({ items }) => {
       <div className="breadcrumbs">
          {items.map(item => {
             return (
-               <Fragment>
-                  <Link to={item.path ? item.path : ''} key={item.id}>{item.name}</Link>
+               <Fragment key={item.id}>
+                  <Link to={item.path ? item.path : ''}>{item.name}</Link>
                   <span>&#62;</span>
                </Fragment>
             )

@@ -7,7 +7,7 @@ const LaunchPads: React.FC<Props> = ({ launchPads }) => {
          {
             launchPads.map(pad => {
                return (
-                  <a className="pad" key={pad.id} href={pad.wikipedia} target="_blank">
+                  <a className="pad" key={pad.id} href={pad.wikipedia} target="_blank" rel="noopener noreferrer">
                      <div className="pad-item">
                         <p className="pad-item_title">{pad.location.name}</p>
                      </div>

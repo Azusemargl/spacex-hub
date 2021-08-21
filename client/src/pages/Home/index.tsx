@@ -9,9 +9,7 @@ import LaunchPads from '../../components/LaunchPads/LaunchPads';
 import { AppState } from '../../redux/store';
 
 const Home: React.FC = React.memo(() => {
-      // Launches data limit
-      const [launchesLimit, setLaunchesLimit] = React.useState(3);
-   
+
       // Dispatch and State
       const dispatch = useDispatch();
    
@@ -21,9 +19,9 @@ const Home: React.FC = React.memo(() => {
    
       // Launches data call
       React.useEffect(() => {
-         dispatch(fetchLaunches(launchesLimit));
+         dispatch(fetchLaunches(3));
          dispatch(fetchLaunchPads());
-      }, []);
+      }, [dispatch]);
 
       return (
          <>

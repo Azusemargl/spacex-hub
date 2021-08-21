@@ -18,11 +18,10 @@ const Wrapper: React.FC = React.memo(() => {
   
     // Searching for user token
     const token = getCookieValue('jwt');
-    console.log(token);
   
     React.useEffect(() => {
       token && dispatch(fetchMe(token));
-    }, []);
+    }, [dispatch, token]);
   
     return (
       <div className="wrapper">

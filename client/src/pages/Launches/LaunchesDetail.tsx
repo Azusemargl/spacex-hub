@@ -15,7 +15,7 @@ const LaunchesDetailContainer: React.FC = () => {
   // Launches data call
   React.useEffect(() => {
     dispatch(fetchLaunchesDetail(params.id));
-  }, []);
+  }, [dispatch, params.id]);
 
   if (isLoading) return <span>Loading...</span>
 

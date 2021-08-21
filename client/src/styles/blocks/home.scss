@@ -9,7 +9,7 @@
    &-title {
       font-size: 3.8rem;
    }
-   
+
    &-description {
       margin: 2rem 0;
    }
@@ -29,10 +29,12 @@
    }
 
    &-info {
-      margin: 1rem 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      @include breakpoint($mobile) {
+         margin: 1rem 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
    }
 
    @include breakpoint($mobile) {

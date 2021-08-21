@@ -11,7 +11,7 @@ const Missions: React.FC = () => {
 
    React.useEffect(() => {
       dispatch(fetchMissions());
-   }, [])
+   }, [dispatch])
 
    return (
       <div className="missions">
@@ -25,24 +25,26 @@ const Missions: React.FC = () => {
                      <p><i>Payload:</i></p>
                      {mission.payload_ids.map((item, index) => {
                         return (
-                           <li className="mission-li">{index+1}. { item }</li>
+                           <li className="mission-li">{index + 1}. {item}</li>
                         )
                      })}
                   </ul>
                   <ul className="mission-list">
                      <div className="mission-sochial">
                         <li className="mission-list_item">
-                           <a className="mission-image" href={mission.twitter} target="_blank">
-                              <img src={Twitter} alt=""/>
+                           <a className="mission-image" href={mission.twitter} target="_blank" rel="noopener noreferrer">
+                              <img src={Twitter} alt="" />
                            </a>
                         </li>
                         <li className="mission-list_item">
-                           <a className="mission-image" href={mission.wikipedia} target="_blank">
-                           <img src={Wikipedia} alt=""/>
+                           <a className="mission-image" href={mission.wikipedia} target="_blank" rel="noopener noreferrer">
+                              <img src={Wikipedia} alt="" />
                            </a>
                         </li>
                      </div>
-                     <a href={mission.website} className="ref" target="_blank">{mission.manufacturers}</a>
+                     <a href={mission.website} className="ref" target="_blank" rel="noopener noreferrer">
+                        {mission.manufacturers}
+                     </a>
                   </ul>
                </div>
             )

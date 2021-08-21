@@ -12,7 +12,7 @@ const About: React.FC = () => {
 
    React.useEffect(() => {
       dispatch(fetchAbout());
-   }, []);
+   }, [dispatch]);
 
    return (
       <div className="about">

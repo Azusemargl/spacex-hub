@@ -24,7 +24,7 @@ const LaunchesDetailGallery: React.FC<Props> = React.memo(({ launch }) => {
          </div>
          {isGallery && visabelPopUp &&
             <div className="launch_detail-gallery_pop_up" onClick={() => setVisabelPopUp(null)}>
-               <img src={visabelPopUp} />
+               <img src={visabelPopUp} alt="" />
             </div>
          }
       </Fragment>

@@ -5,13 +5,11 @@ import { FieldCreator } from '../Fields/FieldCreator';
 import { required } from '../../utils/valodators/validator';
 import Title from '../common/Title';
 
-const InputComponent = () => {
-   return <input type="text" />
-}
-
-const Input = FieldCreator(InputComponent);
+// TODO: Create password reset function
 
 const ResetForm: React.FC<InjectedFormProps> = ({ handleSubmit }) => {
+   const Input = FieldCreator("input");
+
    return (
       <form className={"form"} onSubmit={handleSubmit}>
          <Field component={Input} validate={[required]} name="reset" placeholder="E-mail" />
@@ -23,10 +21,6 @@ const ResetForm: React.FC<InjectedFormProps> = ({ handleSubmit }) => {
 const ResetReduxForm = reduxForm({form: 'reset-form'})(ResetForm)
 
 const Login = () => {
-   const onReset = (data: { email: string }) => {
-      console.log(data.email);
-   };
-   
    return (
       <div className="auth-block login">
          <Title>Восстановить пароль</Title>

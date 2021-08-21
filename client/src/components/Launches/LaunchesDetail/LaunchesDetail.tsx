@@ -12,7 +12,7 @@ const LaunchesDetail: React.FC<Props> = React.memo(({ launch }) => {
       <Breadcrumbs items={[
         { id: 1, name: 'Главная', path: '/' },
         { id: 2, name: 'Запуски', path: '/launches' },
-        { id: 2, name: launch.mission_name, path: null }
+        { id: 3, name: launch.mission_name, path: null }
       ]} />
       <h1 className="launch_detail-title">{launch.mission_name}</h1>
       <div className="launch_detail-info">
@@ -32,12 +32,14 @@ const LaunchesDetail: React.FC<Props> = React.memo(({ launch }) => {
         </div>
       </div>
       <div className="launch_detail-footer">
-        <a className="launch-article" href={launch.links?.article_link} target="_blank">Читать статью...</a>
+        <a className="launch-article" href={launch.links?.article_link} target="_blank" rel="noopener noreferrer">
+          Читать статью...
+        </a>
         <div className="launch-links">
-          <a className="launch-link" href={launch.links?.video_link} target="_blank">
+          <a className="launch-link" href={launch.links?.video_link} target="_blank" rel="noopener noreferrer">
             <img src={youtube} alt={launch.mission_name} />
           </a>
-          <a className="launch-link" href={launch.links?.wikipedia} target="_blank">
+          <a className="launch-link" href={launch.links?.wikipedia} target="_blank" rel="noopener noreferrer">
             <img src={wikipedia} alt={launch.mission_name} />
           </a>
         </div>

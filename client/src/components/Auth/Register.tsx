@@ -7,20 +7,20 @@ import { FieldCreator } from '../Fields/FieldCreator';
 import { required } from '../../utils/valodators/validator';
 import Title from '../common/Title';
 
-const Input = FieldCreator("input");
-
 const RegisterForm: React.FC<InjectedFormProps<ValueType>> = ({ handleSubmit, error }) => {
-      return (
-         <form className={"form"} onSubmit={handleSubmit}>
-            <Field component={Input} validate={[required]} name="login" placeholder="Логин" />
-            <Field component={Input} validate={[required]} name="email" placeholder="E-mail" />
-            <Field component={Input} validate={[required]} name="password" type={"password"} placeholder="Пароль" />
-            <Field component={Input} validate={[required]} name="password_2" type={"password"} placeholder="Повтор пароля" />
-            <button className="btn btn-submit">Регистрация</button>
-            {error && <p className="warning_alert">{error}</p>}
-         </form>
-      );
-   }
+   const Input = FieldCreator("input");
+
+   return (
+      <form className={"form"} onSubmit={handleSubmit}>
+         <Field component={Input} validate={[required]} name="login" placeholder="Логин" />
+         <Field component={Input} validate={[required]} name="email" placeholder="E-mail" />
+         <Field component={Input} validate={[required]} name="password" type={"password"} placeholder="Пароль" />
+         <Field component={Input} validate={[required]} name="password_2" type={"password"} placeholder="Повтор пароля" />
+         <button className="btn btn-submit">Регистрация</button>
+         {error && <p className="warning_alert">{error}</p>}
+      </form>
+   );
+}
 
 const RegisterReduxForm = reduxForm<ValueType>({ form: 'register-form' })(RegisterForm)
 
@@ -36,7 +36,7 @@ const Register = () => {
    };
 
    const onRedirect = () => {
-      if (redirect) return  <Redirect to="/" />
+      if (redirect) return <Redirect to="/" />
    };
 
    return (

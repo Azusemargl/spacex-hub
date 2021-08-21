@@ -13,7 +13,7 @@ const Launches: React.FC<Props> = ({ launchesLimit }) => {
   // Launches data call
   React.useEffect(() => {
     dispatch(fetchLaunches(launchesLimit));
-  }, []);
+  }, [dispatch, launchesLimit]);
 
   return (
     <>

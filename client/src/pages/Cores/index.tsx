@@ -10,7 +10,7 @@ const Cores: React.FC = () => {
 
    React.useEffect(() => {
       dispatch(fetchCores());
-   }, []);
+   }, [dispatch]);
 
    return (
      <div className="cores">

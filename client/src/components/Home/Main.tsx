@@ -8,7 +8,7 @@ const Main: React.FC = () => {
             <div className="main-content main-info">
                <h1 className="main-title">SpaceX Hub</h1>
                <p className="main-description">Энциклопедия SpaceX</p>
-               <a className="btn" href="https://spacex.com" target="_blank">Перейти на сайт</a>
+               <a className="btn" href="https://spacex.com" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
             </div>
             <div className="main-content main-image">
                <img src={MainImage} alt="SpaceX"/>
