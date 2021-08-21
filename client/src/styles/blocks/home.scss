@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../mixins';
+
 .main {
    display: flex;
    align-items: center;
@@ -13,11 +16,26 @@
 
    &-content {
       width: 50%;
+
+      @include breakpoint($mobile) {
+         width: 100%;
+      }
    }
 
    &-image {
       img {
          width: 100%;
       }
+   }
+
+   &-info {
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   @include breakpoint($mobile) {
+      flex-direction: column-reverse;
    }
 }

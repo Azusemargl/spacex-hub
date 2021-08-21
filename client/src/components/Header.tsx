@@ -5,9 +5,11 @@ import { fetchLogout } from '../redux/reducers/authReducer';
 import Menu from './Menu';
 import { AppState } from '../redux/store';
 
-const Header: React.FC= () => {
-   const { login, isAuth } = useSelector(({ authReducer }: AppState) => authReducer);
+const Header: React.FC = () => {
    const dispatch = useDispatch();
+   const { login, isAuth } = useSelector(({ authReducer }: AppState) => authReducer);
+
+   const [mobileActive, setMobileActive] = React.useState(false)
 
    // User token delete
    const deleteCookie = (name: string) => {
@@ -24,16 +26,19 @@ const Header: React.FC= () => {
    return (
       <header className="header">
          <Link className="logo" to="/">SpaceX Hub</Link>
-         <nav className="menu">
-            <Menu />
-         </nav>
-         {isAuth
-            ? <div className="auth_block">
-               <p>{login}</p>
-               <button className="auth_block-item" onClick={() => onLogout()}>Выйти</button>
+         <Menu active={mobileActive} setMobileActive={setMobileActive} />
+         <div className="header__block">
+            {isAuth
+               ? <div className="auth_block">
+                  <p>{login}</p>
+                  <button className="auth_block-item" onClick={() => onLogout()}>Выйти</button>
+               </div>
+               : <Link className="auth_block-item" to="/auth/login">Войти</Link>
+            }
+            <div className={`burger ${mobileActive ? "active" : ""}`} onClick={() => setMobileActive(!mobileActive)}>
+               <span></span>
             </div>
-            : <Link className="auth_block-item" to="/auth/login">Войти</Link>
-         }
+         </div>
       </header>
    )
 }

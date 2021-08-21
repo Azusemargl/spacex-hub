@@ -1,12 +1,19 @@
+@import '../vars';
+@import '../mixins';
+
 .launches {
    display: flex;
-   flex-wrap: wrap;
    justify-content: space-between;
+   flex-wrap: wrap;
+
+   @include breakpoint($mobile) {
+      flex-wrap: wrap;
+   }
 }
 .launch {
-   width: calc(100% / 3 - 1rem);
+   width: calc(100% / 3  - 1rem);
    max-width: 28rem;
-   margin: 0 2rem 2rem 0;
+   margin: 0 1rem;
    padding: 2rem;
    background-color: #202020;
    border-radius: 1rem;
@@ -64,6 +71,17 @@
       margin-bottom: 0.5rem;
       color: $grayText;
    }
+
+   @include breakpoint($tablet) {
+      margin: 0 5px;
+      padding: 1rem;
+   }
+
+   @include breakpoint($mobile) {
+      margin: 5px;
+      max-width: 100%;
+      width: 100%;
+   }
 }
 
 .launch_detail {
@@ -75,6 +93,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      @include breakpoint($tablet) {
+         flex-direction: column;
+      }
    }
 
    &-content_container {
@@ -101,6 +123,10 @@
          height: 100%;
          object-fit: cover;
          cursor: zoom-in;
+      }
+
+      @include breakpoint($mobile) {
+         width: 100%;
       }
    }
 
@@ -130,5 +156,10 @@
 
    .launch-info {
       min-width: 50rem;
+
+      @include breakpoint($mobile) {
+         min-width: auto;
+         width: 100%;
+      }
    }
 }

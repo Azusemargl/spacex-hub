@@ -17,7 +17,7 @@ const Missions: React.FC = () => {
       <div className="missions">
          {missions.map(mission => {
             return (
-               <div className="mission" key={mission.mission_id}>
+               <div className="mission" key={mission.mission_name}>
                   <h5 className="mission-title">{mission.mission_name}</h5>
                   <p className="mission-field"><i>Description:</i> {mission.description}</p>
                   <p className="mission-field"><i>Manufacturers:</i> {mission.manufacturers}</p>

@@ -1,12 +1,15 @@
+@import '../vars';
+@import '../mixins';
+
 .cores {
    display: flex;
    flex-wrap: wrap;
 }
 
 .core {
-   margin: 0 1rem 1rem 0;
+   margin: 5px;
    padding: 1rem;
-   width: calc(100% / 2 - 2rem);
+   width: calc(100% / 2 - 1rem);
    border: 1px solid rgba($blue, 0.2);
 
    &-name {
@@ -16,5 +19,9 @@
 
    span {
       color: $grayText;
+   }
+
+   @include breakpoint($mobile) {
+      width: 100%;
    }
 }

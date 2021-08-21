@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../mixins';
+
 .header {
    display: flex;
    justify-content: space-between;
@@ -6,10 +9,59 @@
    padding: 2rem;
    margin-bottom: 2rem;
    background-color: $secondary;
+
+   .menu {
+      &-item {
+         &:not(:last-child) {
+            @include breakpoint($tablet) {
+               margin-right: 0;
+               margin-bottom: 2rem;
+            }
+         }
+
+         @include breakpoint($tablet) {
+            margin-right: 0;
+            text-align: center;
+            font-size: 2.8rem;
+         }
+      }
+
+      &.active {
+         @include breakpoint($tablet) {
+            left: 0;
+         }
+      }
+
+      @include breakpoint($tablet) {
+         width: 100%;
+         height: 100%;
+         flex-direction: column;
+         justify-content: center;
+         background-color: rgba($body, 0.5);
+         backdrop-filter: blur(5px);
+         position: fixed;
+         top: 0;
+         left: -100%;
+         z-index: 1;
+      }
+   }
+
+   &__block {
+      display: flex;
+      align-items: center;
+   }
 }
 
 .logo {
    font-size: 3.2rem;
+
+   @include breakpoint($tablet) {
+      font-size: 2.2rem;
+   }
+
+   @include breakpoint($mobile) {
+      font-size: 1.6rem;
+   }
 }
 
 .menu {
@@ -30,10 +82,78 @@
 
 .auth_block {
    display: flex;
-   
+
    &-item {
       &:not(:last-child) {
          margin-right: 2rem;
       }
+   }
+
+   p, button {
+      @include breakpoint($tablet) {
+         font-size: 1.2rem;
+      }
+   }
+}
+
+.burger {
+   width: 4rem;
+   height: 3rem;
+   margin-left: 2rem;
+   display: none;
+   position: relative;
+   z-index: 2;
+   cursor: pointer;
+
+   span, &::before, &::after {
+      width: 100%;
+      height: 2px;
+      background-color: $text;
+      position: absolute;
+      left: 0;
+      transition: all 0.2s linear;
+   }
+  
+
+   &::before , &::after {
+      content: "";
+   }
+
+   &::after {
+      top: 0;
+   }
+
+   span {
+      top: 50%;
+      transform: translateY(-50%);
+   }
+
+   &::before {
+      bottom: 0;
+   }
+
+   &.active {
+      position: fixed;
+      right: 2rem;
+
+      &::before, &::after {
+         top: 50%;
+      }
+
+      &::after {
+         transform: rotate(-45deg) translateY(-50%);
+      }
+
+      span {
+         opacity: 0;
+      }
+
+      &::before {
+         transform: rotate(45deg) translateY(-50%);
+      }
+   }
+
+   @include breakpoint($tablet) {
+      display: block;
    }
 }

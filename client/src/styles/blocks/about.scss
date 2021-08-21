@@ -1,10 +1,21 @@
+@import '../vars';
+@import '../mixins';
+
 .about {
    &-container {
       display: flex;
+   
+      @include breakpoint($tablet) {
+         flex-direction: column-reverse;
+      }
    }
 
    &-content {
       width: 40%;
+
+      @include breakpoint($tablet) {
+         width: 100%;
+      }
    }
    
    &-item {
@@ -26,6 +37,17 @@
 
       img {
          width: 100%;
+      }
+
+      @include breakpoint($tablet) {
+         width: 100%;
+         padding: 0;
+         margin-bottom: 4rem;
+
+         img {
+            width: 70%;
+            margin: auto;
+         }
       }
    }
 }

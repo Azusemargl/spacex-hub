@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../mixins';
+
 .launchPads {
    display: flex;
    justify-content: space-between;
@@ -17,6 +20,12 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 0.8rem;
+
+      p {
+         @include breakpoint($tablet) {
+            font-size: 1.5rem;
+         }
+      }
    }
 
    &-item_title {
@@ -40,5 +49,14 @@
       top: 0;
       left: 0;
       z-index: -1;
+   }
+
+   @include breakpoint($tablet) {
+      width: calc(100% / 2 - 1rem);
+      margin: 5px;
+   }
+
+   @include breakpoint($mobile) {
+      width: 100%;
    }
 }
