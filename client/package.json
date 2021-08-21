@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
     "axios": "^0.21.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
@@ -41,5 +40,10 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "@types/react-redux": "^7.1.18",
+    "@types/react-router-dom": "^5.1.8",
+    "@types/redux-form": "^8.3.2"
+  }
 }
