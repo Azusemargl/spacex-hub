@@ -1,0 +1,1 @@
+export const server = "https://spacex-app-backend.herokuapp.com"
